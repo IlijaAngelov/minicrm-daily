@@ -39,7 +39,7 @@ class UserController extends Controller
 
         User::create($validated);
 
-        return redirect('/users');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -69,12 +69,8 @@ class UserController extends Controller
             'email' => ['required', 'email'],
         ]);
 
-        $user->update([
-            'first_name' => request('first_name'),
-            'last_name' => request('last_name'),
-            'email' => request('email'),
-        ]);
-        return redirect('/users');
+        $user->update($validated);
+        return redirect()->route('users.index');
     }
 
     /**
@@ -84,7 +80,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect('/users');
+        return redirect()->route('users.index');
 
     }
 

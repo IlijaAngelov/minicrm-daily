@@ -47,14 +47,14 @@
                                     {{ $user->email }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    <a href="{{ "/users/$user->id" }}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <a href="{{ route("users.edit", $user->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                                     /
                                     <div class="form-group">
 
-                                    <form action="{{ "/users/$user->id", $user->id }}" method="POST">
+                                    <form action="{{ route("users.destroy", $user) }}" method="POST" onsubmit="return confirm('Are you sure?')">
                                         @csrf
                                         @method('DELETE')
-                                            <input type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" value="Delete User">
+                                        <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline" >Delete</button>
                                     </form>
                                     </div>
 
