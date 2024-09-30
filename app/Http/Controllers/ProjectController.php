@@ -40,7 +40,6 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         Project::create($request->validated());
-
         return redirect()->route('projects.index');
     }
 
@@ -52,7 +51,7 @@ class ProjectController extends Controller
         $users = User::select(['id', 'first_name', 'last_name'])->get();
         $clients = Client::select(['id', 'company_name'])->get();
 
-        return view('projects.edit', compact('users', 'clients'));
+        return view('projects.edit', compact('users', 'project', 'clients'));
     }
 
     /**
