@@ -24,11 +24,11 @@
                     <x-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
                         {{ __('Tasks') }}
                     </x-nav-link>
-                    @role(\App\RoleEnum::ADMIN)
+                    @can(\App\Enums\PermissionEnum::MANAGE_USERS->value)
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                         {{ __('Users') }}
                     </x-nav-link>
-                    @endrole
+                    @endcan
                 </div>
             </div>
 
@@ -92,11 +92,11 @@
             <x-responsive-nav-link :href="route('tasks.index')" :active="request()->routeIs('tasks.*')">
                 {{ __('Tasks') }}
             </x-responsive-nav-link>
-            @role(\App\RoleEnum::ADMIN)
+            @can(\App\Enums\PermissionEnum::MANAGE_USERS->value)
             <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                 {{ __('Users') }}
             </x-responsive-nav-link>
-            @endrole
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
