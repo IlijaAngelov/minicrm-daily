@@ -75,7 +75,7 @@
                         </tbody>
                     </table>
                     <div class="mt-4">
-{{--                        {{ $projects->links() }}--}}
+                        {{ $projects->links() }}
                     </div>
                 </div>
             </div>
